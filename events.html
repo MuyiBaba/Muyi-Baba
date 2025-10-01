@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Academy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="topbar">
+      <div class="logo">
+        <img src="img/compro logo.jpeg" alt="Comprehensive Academy Logo">
+        <span>Comprehensive Academy</span>
+      </div>
+      <div class="contact-info">
+        <span>📞 08012345678</span>
+        <span>✉ info@comprehensiveacademy.com</span>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-left">
+      <div class="footer-logo">
+        <img src="img/compro logo.jpeg" alt="Logo">
+        <span>Comprehensive Academy</span>
+      </div>
+      <p>Proprietor: Hon Sherif Wale Bello</p>
+      <br>
+      <p>Comprehensive Academy, Along Garage Ayetoro Road, Lafenwa, Abeokuta, 110101</p>
+      <p>📞 08012345678</p>
+      <p>✉ info@comprehensiveacademy.com</p>
+      <p>📍 Find Us</p>
+    </div>
+    <div class="footer-right">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Term Dates</a></li>
+        <li><a href="#">Events & Calendar</a></li>
+        <li><a href="#">Uniform</a></li>
+        <li><a href="#">Key Information</a></li>
+        <li><a href="#">Subjects</a></li>
+        <li><a href="#">Prospectus</a></li>
+        <li><a href="#">Hostel</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/scipt.js"></script>
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    let index = 0;
+    const slideWidth = slides[0].offsetWidth + 20; // width + margin
+    
+    function showSlide(i) {
+      if (i > slides.length - Math.floor(carousel.parentElement.offsetWidth / slideWidth)) {
+        index = 0; // loop back
+      }
+      if (i < 0) {
+        index = slides.length - 1;
+      }
+      carousel.style.transform = `translateX(${-index * slideWidth}px)`;
+    }
+    
+    nextBtn.addEventListener('click', () => {
+      index++;
+      showSlide(index);
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      index--;
+      showSlide(index);
+    });
+    
+    // Auto-slide every 4 seconds
+    setInterval(() => {
+      index++;
+      showSlide(index);
+    }, 4000);
+    </script>
+    
+    
+</body>
+</html>
